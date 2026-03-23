@@ -41,7 +41,7 @@ collections:
     output: true
     permalink: /fascicoli/:title/
 
-img: /images/tavola-disegno-1.svg
+img: /evidenza2.gif
 
 # Exclude from processing.
 # The following items will not be processed, by default.
