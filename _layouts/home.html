@@ -8,10 +8,66 @@ layout: base
 <section class="it-hero-wrapper" aria-label="In evidenza">
    <div class="img-responsive-wrapper">
       <div class="img-responsive">
-         <div class="img-wrapper"><img src="{{ site.evidenza }}" title="{{ site.title }}" alt="{{ site.title }}"></div>
+         <div class="img-wrapper"><img src="{{ site.mediaurl }}/{{ site.keyurl }}/evidenza.png" title="{{ site.title }}" alt="{{ site.title }}"></div>
       </div>
    </div>
 </section>
 
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        
+        <div class="text-center mb-4">
+          <h2 class="fw-bold">Chi sono</h2>
+          <p class="text-muted">
+            Mi piace un po' di tutto, ma non tutto
+          </p>
+        </div>
 
+        <div class="card border-0 shadow-sm">
+          <div class="card-body p-4">
+            <p>
+              Mi chiamo <strong>Gabriel Jones</strong> e mi occupo di educazione e formazione.
+              Mi interessa tutto ciò che riguarda apprendimento, tecnologia,
+              comunicazione e crescita personale.
+            </p>
 
+            <p>
+              Nel tempo ho sviluppato competenze nella creazione di contenuti,
+              siti web e progetti educativi. Mi piace semplificare concetti
+              complessi e renderli accessibili a tutti.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<ul class="nav nav-tabs nav-tabs-icon-text auto">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{{ site.url }}/fi25/elementari/">
+      <svg class="icon"><use href="/sprites.svg#it-pa"></use></svg>
+      Elementari
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{{ site.url }}/fi25/infanzia/">
+      <svg class="icon"><use href="/sprites.svg#it-pa"></use></svg>
+      Infanzia
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{{ site.url }}/">      <svg class="icon"><use href="/sprites.svg#it-comment"></use></svg>
+      Tab 3
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" tabindex="-1">
+      <svg class="icon"><use href="/sprites.svg#it-close"></use></svg>
+      Tab 4
+    </a>
+  </li>
+</ul>
