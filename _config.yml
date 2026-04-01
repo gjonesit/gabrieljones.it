@@ -40,6 +40,8 @@ collections:
   fascicoli:
     output: true
     permalink: /fascicoli/:title/
+  posts:
+    output: true
 
 img: /evidenza2.gif
 
