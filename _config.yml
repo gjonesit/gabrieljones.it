@@ -45,6 +45,10 @@ collections:
 
 img: /evidenza2.gif
 
+ufficio: /ufficio/
+fi23: /fi23/
+opac: /opac/
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
