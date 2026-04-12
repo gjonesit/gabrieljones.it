@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: postedu
 title: "Il mio nuovo progetto grafico"
 date: 2023-10-27 10:00:00 +0200
 slug: progetto-logo
