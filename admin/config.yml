@@ -9,16 +9,41 @@ site_url: ""
 logo_url: "/polodelleeta.png"
 
 collections:
-  - name: "pages"
-    label: "Pagine"
-    label_singular: "Pagina"
-    folder: "it"
+  - name: "posts"
+    label: "Blog"
+    folder: "_posts"
     create: true
     slug: "{{slug}}"
-    extension: "md"
-    format: "frontmatter"
     fields:
-      - { label: "Layout", name: "layout", widget: "hidden", default: "base" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
       - { label: "Titolo", name: "title", widget: "string" }
-      - { label: "Permalink", name: "permalink", widget: "string", hint: "Esempio: /nome-pagina/" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime" }
+      - { label: "Immagine", name: "image", widget: "image" }
+      - { label: "Contenuto", name: "body", widget: "markdown" }
+
+  - name: "gra"
+    label: "Studio"
+    folder: "_gra"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime" }
+      - { label: "Immagine", name: "image", widget: "image" }
+      - { label: "Contenuto", name: "body", widget: "markdown" }
+
+  - name: "oratorioposts"
+    label: "Oratorio"
+    folder: "_oratorioposts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime" }
+      - { label: "Immagine", name: "image", widget: "image" }
       - { label: "Contenuto", name: "body", widget: "markdown" }
