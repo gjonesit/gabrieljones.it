@@ -1,9 +1,8 @@
 ---
 layout: post
-title: "Sviluppo ufficio digitale di Gabriel Jones"
+title: "Post da educatore"
 date: 2026-03-01
 tags: [featured, ufficiogabrieljones, news]
-permalink: /esempio/
 ---
 
 
