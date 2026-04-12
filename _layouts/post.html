@@ -1,194 +1,189 @@
----
-layout: default
----
-<main class="main-content">
-    <div class="container">
-        <article class="post-page">
-            
-            <header class="post-header">
-                <span class="post-category-tag">
-                    {% if page.categories.size > 0 %}
-                        {{ page.categories | first }}
-                    {% else %}
-                        Journal
-                    {% endif %}
-                </span>
+<div style="clear: both; display: block; width: 100%;"></div>
+
+<main class="post-layout-wrapper">
+    <div class="post-centered-container">
+        
+        <article class="post-main-content">
+            <header class="post-header-area">
+                <span class="category-badge">{% if page.categories.size > 0 %}{{ page.categories | first }}{% else %}Journal{% endif %}</span>
+                <h1 class="entry-title">{{ page.title }}</h1>
                 
-                <h1 class="post-title">{{ page.title }}</h1>
-                
-                <div class="post-meta">
-                    <div class="meta-item">
-                        <span class="meta-label">DATA:</span> 
-                        <time datetime="{{ page.date | date_to_xmlschema }}">
-                            {{ page.date | date: "%d.%m.%Y" }}
-                        </time>
+                <div class="entry-meta-grid">
+                    <div class="meta-box">
+                        <span class="label">DATA</span> 
+                        <span class="value">{{ page.date | date: "%d.%m.%Y" }}</span>
                     </div>
                     {% if page.author %}
-                    <div class="meta-item">
-                        <span class="meta-label">AUTORE:</span> {{ page.author }}
+                    <div class="meta-box">
+                        <span class="label">AUTORE</span> 
+                        <span class="value">{{ page.author }}</span>
                     </div>
                     {% endif %}
                 </div>
             </header>
 
-            <hr class="post-divider">
+            <div class="black-divider"></div>
 
-            <section class="post-body">
+            <section class="markdown-content">
                 {{ content }}
             </section>
 
-            <footer class="post-footer">
-                <a href="{{ site.baseurl }}/" class="back-link">
-                    <span class="arrow">←</span> TORNA ALL'INDICE
+            <footer class="entry-footer">
+                <a href="{{ site.baseurl }}/" class="retro-back-button">
+                    <span class="icon">←</span> TORNA ALLA HOME
                 </a>
             </footer>
-            
         </article>
+
     </div>
 </main>
 
 <style>
-    /* Spostiamo tutto il CSS specifico qui o nel tuo file main.css */
-    .main-content {
-        padding-top: 180px; 
-        min-height: 80vh;
+    /* 1. RESET TOTALE PER LA PAGINA POST */
+    .post-layout-wrapper {
+        position: relative;
+        width: 100vw;
+        left: 0;
+        right: 0;
+        margin-top: 180px; /* Spazio vitale per la navbar fixed */
         background-color: var(--surface);
+        display: flex;
+        justify-content: center; /* Centra orizzontalmente */
+        z-index: 10;
     }
 
-    .post-page {
-        max-width: 900px;
-        margin: 0 auto;
-        padding-bottom: 100px;
+    .post-centered-container {
+        width: 100%;
+        max-width: 1400px; /* Stessa larghezza della tua .container della home */
+        padding: 0 5%;
+        display: flex;
+        justify-content: center;
     }
 
-    .post-category-tag {
+    .post-main-content {
+        width: 100%;
+        max-width: 850px; /* Larghezza ottimale per la lettura */
+        text-align: left;
+    }
+
+    /* 2. TITOLO E META */
+    .category-badge {
         display: inline-block;
         background: var(--accent);
         color: white;
-        padding: 6px 15px;
+        padding: 4px 12px;
         font-weight: 900;
-        font-size: 0.75rem;
-        text-transform: uppercase;
+        font-size: 0.7rem;
         letter-spacing: 2px;
-        margin-bottom: 25px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
     }
 
-    .post-title {
+    .entry-title {
         font-family: 'Fraunces', serif;
-        font-size: clamp(2.8rem, 8vw, 5.5rem);
-        line-height: 0.85;
-        letter-spacing: -3px;
-        margin-bottom: 40px;
+        font-size: clamp(2.5rem, 8vw, 5rem);
+        line-height: 0.9;
+        letter-spacing: -2px;
         color: var(--dark);
+        margin: 0 0 40px 0;
     }
 
-    .post-meta {
-        border-top: var(--border);
-        padding-top: 25px;
+    .entry-meta-grid {
         display: flex;
         gap: 40px;
+        border-top: var(--border);
+        padding-top: 20px;
     }
 
-    .meta-item {
-        font-size: 0.85rem;
-        font-weight: 800;
-        text-transform: uppercase;
-    }
-
-    .meta-label {
+    .meta-box .label {
         color: var(--primary);
-        margin-right: 8px;
+        font-weight: 900;
+        font-size: 0.7rem;
+        display: block;
     }
 
-    .post-divider {
-        border: 0;
-        border-top: 6px solid var(--dark);
-        margin: 50px 0;
+    .meta-box .value {
+        font-weight: 800;
+        font-size: 0.9rem;
     }
 
-    /* TYPOGRAPHY OVERRIDE PER IL CONTENT GENERATO DA MARKDOWN */
-    .post-body {
+    .black-divider {
+        height: 6px;
+        background: var(--dark);
+        width: 100%;
+        margin: 40px 0;
+    }
+
+    /* 3. MARKDOWN CONTENT (Il cuore del post) */
+    .markdown-content {
         font-size: 1.25rem;
         line-height: 1.6;
         color: var(--dark);
     }
 
-    .post-body p { margin-bottom: 2rem; }
+    .markdown-content p { margin-bottom: 1.8rem; }
     
-    .post-body h2, .post-body h3 {
+    .markdown-content h2 {
         font-family: 'Fraunces', serif;
-        line-height: 1;
+        font-size: 2.8rem;
         margin: 4rem 0 1.5rem;
+        line-height: 1;
     }
 
-    .post-body h2 { font-size: 3rem; letter-spacing: -1px; }
-
-    .post-body ul, .post-body ol { 
-        margin-bottom: 2.5rem; 
-        padding-left: 25px;
-    }
-    
-    .post-body li { 
-        margin-bottom: 12px;
-        font-weight: 500;
-    }
-
-    .post-body blockquote {
+    .markdown-content blockquote {
         background: var(--yellow);
         border: var(--border);
-        padding: 50px;
-        margin: 60px 0;
+        padding: 40px;
+        margin: 50px 0;
         font-family: 'Fraunces';
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: 700;
-        line-height: 1.1;
-        position: relative;
+        box-shadow: 10px 10px 0 var(--dark);
     }
 
-    .post-body img {
+    .markdown-content img {
         width: 100%;
         height: auto;
-        display: block;
         border: var(--border);
-        box-shadow: 12px 12px 0 var(--primary);
-        margin: 4rem 0;
+        box-shadow: 15px 15px 0 var(--primary);
+        margin: 3rem 0;
     }
 
-    .post-footer {
-        margin-top: 100px;
+    /* 4. BOTTONE INDIETRO */
+    .entry-footer {
+        margin: 100px 0;
         padding-top: 40px;
         border-top: var(--border);
     }
 
-    .back-link {
-        font-weight: 900;
-        color: var(--dark);
+    .retro-back-button {
         display: inline-flex;
         align-items: center;
-        gap: 20px;
-        font-size: 0.9rem;
-        transition: var(--transition);
+        gap: 15px;
+        font-weight: 900;
+        color: var(--dark);
+        transition: 0.3s;
     }
 
-    .back-link .arrow {
+    .retro-back-button .icon {
         background: var(--primary);
         color: white;
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
         border: var(--border);
     }
 
-    .back-link:hover .arrow {
+    .retro-back-button:hover .icon {
         background: var(--accent);
-        transform: translateX(-12px);
+        transform: translateX(-10px);
     }
 
+    /* RESPONSIVE */
     @media (max-width: 1024px) {
-        .main-content { padding-top: 140px; }
-        .post-title { font-size: 3.5rem; }
-        .post-body blockquote { padding: 30px; font-size: 1.5rem; }
+        .post-layout-wrapper { margin-top: 120px; }
+        .entry-title { font-size: 3.5rem; }
     }
 </style>
