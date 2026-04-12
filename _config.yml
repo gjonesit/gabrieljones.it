@@ -41,6 +41,8 @@ collections:
     output: true
   posts:
     output: true
+  gra:
+    output: true
 
 img: /evidenza2.gif
 
