@@ -1,6 +1,44 @@
 ---
 layout: base
 ---
+<style>
+    .subnav {
+    position: sticky;
+    top: 80px; /* altezza header */
+    width: 100%;
+    background: white;
+    border-bottom: var(--border);
+    z-index: 8000;
+}
+
+.subnav-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px 5%;
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+}
+
+.subnav-inner a {
+    font-size: 0.7rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--dark);
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.subnav-inner a:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+</style>
+
+
 
 <div class="subnav">
     <div class="subnav-inner">
