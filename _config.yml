@@ -36,13 +36,22 @@ plugins:
   - jekyll-feed
 buk: https://gabrieljones.it/
 
+# Definizione delle Collezioni
 collections:
-  oratorioposts:
-    output: true
-  posts:
-    output: true
   gra:
     output: true
+    permalink: /blog/studio/:slug # Questo fa funzionare il secondo link
+  oratorioposts:
+    output: true
+    permalink: /blog/oratorio/:slug # Questo fa funzionare il terzo link
+
+# Opzionale: Configurazione dei Post standard (il primo link)
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      permalink: /blog/:title # Opzionale, se vuoi uno stile coerente
 
 img: /evidenza2.gif
 
