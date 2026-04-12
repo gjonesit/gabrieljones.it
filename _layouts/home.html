@@ -25,7 +25,7 @@ layout: base
                     {% assign last = site.posts.first %}
 
                     <div class="card-row" onclick="location.href='{{ last.url }}'">
-                        <span>Ultimo Post</span>
+                        <h4>Ultimo Post</h4>
                         <h1>{{ last.title }}</h1>
                     </div>
 
@@ -36,7 +36,7 @@ layout: base
                     {% assign last = posts.first %}
 
                     <div class="card-row" onclick="location.href='/blog/studio/{{ last.slug }}'">
-                        <span>Dalla grafica</span>
+                        <h4>Dalla grafica</h4>
                         <h1>{{ last.title }}</h1>
                     </div>
 
@@ -50,7 +50,7 @@ layout: base
                     {% assign last = posts.first %}
 
                     <div class="card-row" onclick="location.href='{{ site.url }}/blog/oratorio/{{ last.slug }}'">
-                        <span>Dall'Oratorio</span>
+                        <h4>Dall'Oratorio</h4>
                         <h1>{{ last.title }}</h1>
                     </div>
 <!--
