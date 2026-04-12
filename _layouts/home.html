@@ -21,11 +21,22 @@ layout: base
 
 
 
-                
+
                     {% assign last = site.posts.first %}
 
                     <div class="card-row" onclick="location.href='{{ last.url }}'">
                         <span>Ultimo Post</span>
+                        <p>{{ last.title }}</p>
+                    </div>
+
+
+
+
+                    {% assign posts = site.gra | sort: "date" | reverse %}
+                    {% assign last = posts.first %}
+
+                    <div class="card-row" onclick="location.href='/blog/studio/{{ last.slug }}'">
+                        <span>Dalla grafica</span>
                         <p>{{ last.title }}</p>
                     </div>
 
@@ -39,17 +50,15 @@ layout: base
                     {% assign last = posts.first %}
 
                     <div class="card-row" onclick="location.href='/blog/oratorio/{{ last.slug }}'">
+                        <span>Dall'Oratorio</span>
                         <p>{{ last.title }}</p>
                     </div>
-
-                <div class="card-row">
-                    <span>Nuova Release</span>
-                    <p>Protocollo Civico: Il boardgame sul FOIA.</p>
-                </div>
+<!--
                 <div class="card-row" style="border-left: 6px solid var(--accent);">
                     <span>Alert System</span>
                     <p>Apertura iscrizioni workshop formazione Maggio.</p>
                 </div>
+-->
             </div>
         </section>
 
