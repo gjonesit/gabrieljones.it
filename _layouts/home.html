@@ -49,7 +49,7 @@ layout: base
                     {% assign posts = site.oratorioposts | sort: "date" | reverse %}
                     {% assign last = posts.first %}
 
-                    <div class="card-row" onclick="location.href='/blog/oratorio/{{ last.slug }}'">
+                    <div class="card-row" onclick="location.href='{{ site.url }}/blog/oratorio/{{ last.slug }}'">
                         <span>Dall'Oratorio</span>
                         <h1>{{ last.title }}</h1>
                     </div>
@@ -73,7 +73,7 @@ layout: base
                 <a href="/blog/oratorio/2">Gamification del monitoraggio civico</a>
                 <span style="font-weight:900;">→</span>
             </div>
-            <div style="margin-top:30px;"><a href="/blog/oratorio/" style="font-weight:900; border-bottom:3px solid var(--primary);">Vedi tutto l'archivio /blog/</a></div>
+            <div style="margin-top:30px;"><a href="{{ site.url }}/blog/" style="font-weight:900; border-bottom:3px solid var(--primary);">Vedi tutto l'archivio /blog/</a></div>
         </section>
 
         <section style="margin-bottom:100px;">
