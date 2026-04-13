@@ -6,7 +6,7 @@ layout: base
     <div class="container">
         
         <section class="hero-grid">
-<a href="/oratorio/">
+<a href="/opac/fabbricantedigiochi/">
             <div class="hero-main">
                 <div>
                     <span class="section-label" style="color:white; opacity:0.6;">Progetti 2026</span>
@@ -62,19 +62,26 @@ layout: base
             </div>
         </section>
 
-        <section style="margin-bottom:100px;">
-            <span class="section-label">Journal</span>
-            <h2 class="section-title">Diario dei Giochi.</h2>
-            <div class="blog-item">
-                <a href="/blog/oratorio/1">Narrazione e Roleplay nel Grest</a>
-                <span style="font-weight:900;">→</span>
-            </div>
-            <div class="blog-item">
-                <a href="/blog/oratorio/2">Gamification del monitoraggio civico</a>
-                <span style="font-weight:900;">→</span>
-            </div>
-            <div style="margin-top:30px;"><a href="{{ site.url }}/blog/" style="font-weight:900; border-bottom:3px solid var(--primary);">Vedi tutto l'archivio /blog/</a></div>
-        </section>
+<section style="margin-bottom:100px;">
+    <span class="section-label">Journal</span>
+    <h2 class="section-title">Diario dei Giochi.</h2>
+
+    {% assign posts = site.oratorioposts | slice: 0, 2 %}
+    {% for post in posts %}
+        <div class="blog-item">
+            <a href="{{ post.url }}">{{ post.title }}</a>
+            <span style="font-weight:900;">→</span>
+        </div>
+    {% endfor %}
+
+    <div style="margin-top:30px;">
+        <a href="{{ site.url }}/blog/" style="font-weight:900; border-bottom:3px solid var(--primary);">
+            Vedi di più
+        </a>
+    </div>
+</section>
+        <!--
+
 
         <section style="margin-bottom:100px;">
             <span class="section-label">Ludoteca</span>
@@ -105,26 +112,27 @@ layout: base
                 <div class="scatti-item">FRAME_04.JPG</div>
             </div>
         </section>
+-->
 
         <section style="margin-bottom:100px;">
             <span class="section-label">Visual Archive</span>
             <h2 class="section-title">Portfolio.</h2>
             <div class="portfolio-grid">
                 <div class="port-box span-8">
-                    <h3 style="font-family:'Fraunces'; font-size:2.5rem;">Visual Identity: Bando Periferie</h3>
-                    <p style="margin-top:15px; opacity:0.7;">Comunicazione integrata per progetti sociali territoriali.</p>
+                    <h3 style="font-family:'Fraunces'; font-size:2.5rem;">Progetto Fragola</h3>
+                    <p style="margin-top:15px; opacity:0.7;">Grafica basata, sulla, sulla... FRAGOLA!.</p>
                 </div>
                 <div class="port-box span-4">
-                    <h3 style="font-family:'Fraunces'; font-size:1.8rem;">Logofolio</h3>
+                    <h3 style="font-family:'Fraunces'; font-size:1.8rem;">Logo Gabriel Jones</h3>
                     <p>Revisione 2025.</p>
                 </div>
                 <div class="port-box span-6">
-                    <h3 style="font-family:'Fraunces'; font-size:2rem;">Sussidio Grest</h3>
-                    <p>Layout editoriale per animazione.</p>
+                    <h3 style="font-family:'Fraunces'; font-size:2rem;">Fabbricante di giochi</h3>
+                    <p>Piccolo libretto, di giochi, attività e molto altro!.</p>
                 </div>
                 <div class="port-box span-6">
-                    <h3 style="font-family:'Fraunces'; font-size:2rem;">Brand Manual</h3>
-                    <p>Linee guida terzo settore.</p>
+                    <h3 style="font-family:'Fraunces'; font-size:2rem;">Aggiornamento sito GJ</h3>
+                    <p>Re-Design del sito gabrieljones.it.</p>
                 </div>
             </div>
         </section>
@@ -132,14 +140,14 @@ layout: base
         <section class="foia-section">
             <div class="foia-bg-text">FOIA</div>
             <div style="z-index:1;">
-                <span class="section-label" style="color:var(--yellow);">Civic Monitoring</span>
+                <span class="section-label" style="color:var(--yellow);">Trasparenza</span>
                 <h2 style="font-family:'Fraunces'; font-size:4rem; line-height:1;">Diritto di <br>Sapere.</h2>
-                <p style="margin-top:30px; opacity:0.8; max-width:400px;">Controllo popolare sulle decisioni pubbliche attraverso l'accesso universale ai dati.</p>
-                <a href="#" style="background:var(--yellow); color:var(--dark); padding:20px 40px; display:inline-block; margin-top:40px; font-weight:900;">ARCHIVIO ATTI</a>
+                <p style="margin-top:30px; opacity:0.8; max-width:400px;">Accesso universale ai documenti dei progetti pubblici.</p>
+                <a href="#" style="background:var(--yellow); color:var(--dark); padding:20px 40px; display:inline-block; margin-top:40px; font-weight:900;">ARCHIVIO</a>
             </div>
             <div style="background:white; color:var(--dark); padding:40px; align-self:center; border:var(--border); z-index:1;">
-                <h4 style="font-weight:900; border-bottom:1px solid #eee; padding-bottom:10px;">Ultimo Audit Civico</h4>
-                <p style="margin-top:20px;">Oggetto: Fondi PNRR Riqualificazione Urbana.<br><strong>Stato: Monitoraggio in corso.</strong></p>
+                <h4 style="font-weight:900; border-bottom:1px solid #eee; padding-bottom:10px;">In evidenza</h4>
+                <p style="margin-top:20px;">Oggetto: Avvio studio gab.<br><strong>Stato: In discussione.</strong></p>
             </div>
         </section>
 
