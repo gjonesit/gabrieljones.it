@@ -29,30 +29,7 @@ layout: base
                         <h1>{{ last.title }}</h1>
                     </div>
 
-
-
-
-                    {% assign posts = site.gra | sort: "date" | reverse %}
-                    {% assign last = posts.first %}
-
-                    <div class="card-row" onclick="location.href='/blog/studio/{{ last.slug }}'">
-                        <h4>Dalla grafica</h4>
-                        <h1>{{ last.title }}</h1>
-                    </div>
-
-
-
-
-
-
-
-                    {% assign posts = site.oratorioposts | sort: "date" | reverse %}
-                    {% assign last = posts.first %}
-
-                    <div class="card-row" onclick="location.href='{{ site.url }}/blog/oratorio/{{ last.slug }}'">
-                        <h4>Dall'Oratorio</h4>
-                        <h1>{{ last.title }}</h1>
-                    </div>
+                    {% endif }
 <!--
                 <div class="card-row" style="border-left: 6px solid var(--accent);">
                     <span>Alert System</span>
@@ -62,24 +39,6 @@ layout: base
             </div>
         </section>
 
-<section style="margin-bottom:100px;">
-    <span class="section-label">Journal</span>
-    <h2 class="section-title">Diario dei Giochi.</h2>
-
-    {% assign posts = site.oratorioposts | slice: 0, 2 %}
-    {% for post in posts %}
-        <div class="blog-item">
-            <a href="{{ post.url }}">{{ post.title }}</a>
-            <span style="font-weight:900;">→</span>
-        </div>
-    {% endfor %}
-
-    <div style="margin-top:30px;">
-        <a href="{{ site.url }}/blog/" style="font-weight:900; border-bottom:3px solid var(--primary);">
-            Vedi di più
-        </a>
-    </div>
-</section>
         <!--
 
 
