@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Scheda Progetto Monster
-permalink: /desk/monster/
+permalink: /start/
 settore: generale
 ---
 
