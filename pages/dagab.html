@@ -14,150 +14,148 @@ tags:
 
 
 
+
+
+
+
+
+
 <style>
-  .hero-mix {
+  .hero-single {
     padding: 120px 0 80px;
   }
 
-  .hero-mix-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 60px;
-    align-items: stretch;
-  }
-
-  .hero-mix-text {
+  .hero-card {
+    border: var(--border);
     background: var(--primary);
     color: white;
-    padding: 60px;
-    border: var(--border);
-    position: relative;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    min-height: 420px;
     overflow: hidden;
   }
 
-  .hero-mix-label {
+  .hero-content {
+    padding: 60px;
+    position: relative;
+  }
+
+  .hero-label {
     opacity: 0.6;
     font-size: 0.9rem;
   }
 
-  .hero-mix-title {
+  .hero-title {
     font-family: 'Fraunces';
-    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
     line-height: 0.9;
     margin: 20px 0;
   }
 
-  .hero-mix-desc {
+  .hero-text {
     max-width: 500px;
-    opacity: 0.85;
     font-weight: 600;
+    opacity: 0.85;
     line-height: 1.6;
   }
 
-  .hero-mix-sign {
+  .hero-sign {
     position: absolute;
-    bottom: 20px;
-    right: 30px;
+    bottom: 25px;
+    left: 60px;
     font-family: 'Homemade Apple';
     color: var(--yellow);
-    transform: rotate(-3deg);
     font-size: 1.8rem;
+    transform: rotate(-3deg);
   }
 
-  .hero-mix-visual {
-    display: grid;
-    grid-template-rows: 2fr 1fr;
-    gap: 20px;
-  }
-
-  .hero-mix-img {
-    border: var(--border);
-    overflow: hidden;
+  .hero-media {
+    position: relative;
+    border-left: var(--border);
     background: #eee;
   }
 
-  .hero-mix-img img {
+  .hero-media img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
 
-  .hero-mix-panel {
-    border: var(--border);
+  .hero-accent {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
     background: white;
-    padding: 30px;
+    color: black;
+    padding: 15px 20px;
+    border: var(--border);
+    font-size: 0.85rem;
+    font-weight: 800;
   }
 
-  .hero-mix-panel h3 {
-    font-family: 'Fraunces';
-    margin-bottom: 10px;
-  }
-
-  .hero-mix-panel p {
-    font-size: 0.9rem;
-    opacity: 0.7;
-    line-height: 1.5;
-  }
-
-  /* RESPONSIVE */
   @media (max-width: 900px) {
-    .hero-mix-grid {
+    .hero-card {
       grid-template-columns: 1fr;
     }
 
-    .hero-mix-sign {
+    .hero-media {
+      height: 260px;
+      border-left: none;
+      border-top: var(--border);
+    }
+
+    .hero-sign {
       position: static;
       margin-top: 30px;
-      display: block;
-      transform: none;
+      display: inline-block;
     }
   }
 </style>
 
-<section class="hero-mix">
+<section class="hero-single">
   <div class="container">
 
-    <div class="hero-mix-grid">
+    <div class="hero-card">
 
-      <!-- TESTO -->
-      <div class="hero-mix-text">
+      <div class="hero-content">
 
-        <div class="hero-mix-label">Portfolio / Freelance</div>
+        <div class="hero-label">Studio / Portfolio</div>
 
-        <h1 class="hero-mix-title">
-          DaGab
+        <h1 class="hero-title">
+          Design e immagine in un unico sistema
         </h1>
 
-        <p class="hero-mix-desc">
-          Un hero che combina testo, layout e visual per creare un impatto immediato.
-          Perfetto per presentare lavori, brand o progetti creativi.
+        <p class="hero-text">
+          Un hero compatto che integra testo, visual e accento grafico senza perdere pulizia e leggibilità.
         </p>
 
-        <div class="hero-mix-sign">Gabriel Jones</div>
+        <div class="hero-sign">Gabriel Jones</div>
 
       </div>
 
-      <!-- VISUALE -->
-      <div class="hero-mix-visual">
-
-        <div class="hero-mix-img">
-          <img src="https://picsum.photos/800/600?random=20" alt="">
-        </div>
-
-        <div class="hero-mix-panel">
-          <h3>Direzione creativa</h3>
-          <p>
-            Layout, identità visiva e sviluppo front-end in un unico sistema coerente.
-          </p>
-        </div>
-
+      <div class="hero-media">
+        <img src="https://picsum.photos/800/900?random=33" alt="">
+        <div class="hero-accent">Ultimo progetto</div>
       </div>
 
     </div>
 
   </div>
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
