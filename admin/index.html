@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Admin | GJ</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin | Gabriel Jones</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Outfit:wght@300;600;800&display=swap" rel="stylesheet">
+  <style>
+    /* =========================
+   GABRIEL JONES ADMIN UI
+   FULL CUSTOM THEME
+   ========================= */
 
-<style>
 :root{
   --primary:#0047BB;
   --accent:#FF3E3E;
@@ -17,20 +20,15 @@
   --border:2px solid #05162E;
 }
 
-/* RESET TOTALE CMS UI */
+/* RESET TOTALE CMS */
 html, body {
-  margin:0;
-  padding:0;
-  background:var(--surface);
-  font-family:'Outfit',sans-serif;
+  margin:0 !important;
+  padding:0 !important;
+  background:var(--surface) !important;
+  font-family:'Outfit', sans-serif !important;
 }
 
-/* elimina effetto "app CMS" */
-#nc-root {
-  height:100vh;
-}
-
-/* TOP BAR CMS */
+/* TOP BAR */
 .nc-appHeader {
   background:var(--surface) !important;
   border-bottom:var(--border) !important;
@@ -43,32 +41,43 @@ html, body {
   color:var(--dark) !important;
 }
 
-/* SIDEBAR = stile sito */
-.css-1r6n5jg-Root,
-.css-1f3b5g5-Root,
+/* SIDEBAR (COLLECTIONS) */
 aside {
   background:white !important;
   border-right:var(--border) !important;
   box-shadow:none !important;
 }
 
-/* LISTE COLLEZIONI */
-.css-1hvrgvd-CollectionTopRow {
-  font-weight:900 !important;
-}
-
-.css-1y4p8pa {
+/* COLLECTION LIST */
+.css-1r6n5jg-Root,
+.css-1f3b5g5-Root {
+  background:white !important;
   border-radius:0 !important;
 }
 
-/* BOTTONI */
+/* CARD BLOG (LISTA POST) */
+[class*="Card"],
+[class*="card"] {
+  border:var(--border) !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  background:white !important;
+  transition:0.25s;
+}
+
+[class*="Card"]:hover {
+  transform:translate(-6px,-6px);
+  box-shadow:10px 10px 0 var(--yellow);
+}
+
+/* BUTTONS */
 button {
   border:var(--border) !important;
   border-radius:0 !important;
   background:var(--primary) !important;
   color:white !important;
   font-weight:900 !important;
-  font-family:'Outfit';
+  font-family:'Outfit' !important;
   transition:0.3s;
 }
 
@@ -76,70 +85,66 @@ button:hover {
   background:var(--dark) !important;
 }
 
-/* CARDS BLOG */
-.css-1f0hpgt-Card,
-.css-1q8dd3e-Card {
-  border:var(--border) !important;
-  border-radius:0 !important;
-  box-shadow:none !important;
-  background:white !important;
-  transition:0.3s;
-}
-
-.css-1f0hpgt-Card:hover {
-  transform:translate(-4px,-4px);
-  box-shadow:8px 8px 0 var(--yellow);
-}
-
-/* FORM EDITOR */
+/* INPUTS */
 input, textarea, select {
   border:var(--border) !important;
   border-radius:0 !important;
-  font-family:'Outfit' !important;
   box-shadow:none !important;
+  font-family:'Outfit' !important;
 }
 
-/* elimina “effetto app contenuta” */
+/* EDITOR AREA FULL STYLE */
 .nc-entryEditor {
   background:var(--surface) !important;
-  padding:0 !important;
 }
 
-/* FULL WIDTH EXPERIENCE */
+/* REMOVE “APP FEEL” */
 .nc-app,
-.nc-root,
-.nc-container {
+.nc-root {
   max-width:100% !important;
 }
 
-/* WATERMARK STILE TUO SITO */
+/* WATERMARK (COME IL TUO SITO) */
 body::after {
   content:"GJ";
   position:fixed;
-  font-size:18rem;
+  font-size:20rem;
   font-weight:900;
   opacity:0.03;
-  right:-40px;
-  bottom:-60px;
+  right:-60px;
+  bottom:-80px;
   font-family:'Fraunces';
   pointer-events:none;
 }
 
-/* RIMOZIONE “APP FEEL” */
-.nc-appHeader, .nc-appHeader * {
+/* LINKS */
+a {
+  color:var(--primary) !important;
+  font-weight:800;
+}
+
+a:hover {
+  color:var(--accent) !important;
+}
+
+/* LIST ITEMS */
+li {
+  font-weight:600;
+}
+
+/* REMOVE RADIUS OVUNQUE */
+* {
   border-radius:0 !important;
 }
-</style>
+  </style>
 </head>
 
 <body>
+  <div id="nc-root"></div>
 
-<div id="nc-root"></div>
-
-<script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-<script>
-CMS.init();
-</script>
-
+  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <script>
+    CMS.init();
+  </script>
 </body>
 </html>
