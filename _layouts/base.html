@@ -6,7 +6,248 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gabriel Jones</title>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Outfit:wght@300;600;800&family=Homemade+Apple&display=swap" rel="stylesheet">
-    <style>
+
+
+
+
+
+<style>
+  .hero {
+    padding: 120px 0 80px;
+  }
+
+  .hero-box {
+    background: var(--primary);
+    color: white;
+    padding: 60px;
+    border: var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-label {
+    color: white;
+    opacity: 0.6;
+  }
+
+  .hero-title {
+    font-family: 'Fraunces';
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    line-height: 0.9;
+    margin: 20px 0;
+  }
+
+  .hero-desc {
+    max-width: 600px;
+    font-weight: 600;
+    opacity: 0.85;
+  }
+
+  .hero-sign {
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    font-family: 'Homemade Apple';
+    font-size: 2rem;
+    color: var(--yellow);
+    transform: rotate(-3deg);
+  }
+
+  .content {
+    margin-bottom: 120px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 60px;
+  }
+
+  .main {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .box {
+    border: var(--border);
+    padding: 30px;
+    background: white;
+    margin-bottom: 30px;
+  }
+
+  .box h4 {
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .tags span {
+    background: var(--dark);
+    color: white;
+    font-size: 0.7rem;
+    padding: 5px 10px;
+    font-weight: 800;
+  }
+
+  .highlight {
+    margin-bottom: 120px;
+  }
+
+  .highlight-box {
+    background: var(--yellow);
+    border: var(--border);
+    padding: 60px;
+  }
+
+  .highlight-box h3 {
+    font-family: 'Fraunces';
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+      order: -1;
+    }
+
+    .hero-box {
+      padding: 40px;
+    }
+
+    .hero-sign {
+      position: static;
+      margin-top: 30px;
+      transform: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      padding: 80px 0 60px;
+    }
+
+    .hero-box {
+      padding: 30px 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 10vw, 3rem);
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+    }
+
+    .highlight-box {
+      padding: 30px 20px;
+    }
+  }
+</style>
+
+<style>
+  .hero-single {
+    padding: 120px 0 80px;
+  }
+
+  .hero-card {
+    border: var(--border);
+    background: var(--primary);
+    color: white;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    min-height: 420px;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    padding: 60px;
+    position: relative;
+  }
+
+  .hero-label {
+    opacity: 0.6;
+    font-size: 0.9rem;
+  }
+
+  .hero-title {
+    font-family: 'Fraunces';
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+    line-height: 0.9;
+    margin: 20px 0;
+  }
+
+  .hero-text {
+    max-width: 500px;
+    font-weight: 600;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+
+  .hero-sign {
+    position: absolute;
+    bottom: 25px;
+    left: 60px;
+    font-family: 'Homemade Apple';
+    color: var(--yellow);
+    font-size: 1.8rem;
+    transform: rotate(-3deg);
+  }
+
+  .hero-media {
+    position: relative;
+    border-left: var(--border);
+    background: #eee;
+  }
+
+  .hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-accent {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    color: black;
+    padding: 15px 20px;
+    border: var(--border);
+    font-size: 0.85rem;
+    font-weight: 800;
+  }
+
+  @media (max-width: 900px) {
+    .hero-card {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-media {
+      height: 260px;
+      border-left: none;
+      border-top: var(--border);
+    }
+
+    .hero-sign {
+      position: static;
+      margin-top: 30px;
+      display: inline-block;
+    }
+  }
+</style>
+
+
+<style>
         :root {
             --primary: #0047BB;
             --accent: #FF3E3E;
@@ -148,7 +389,7 @@
             .port-box.span-8, .port-box.span-4, .port-box.span-6 { grid-column: span 12; }
             .scatti-item { min-width: 85%; }
         }
-    </style>
+ </style>
 </head>
 <body>
 
