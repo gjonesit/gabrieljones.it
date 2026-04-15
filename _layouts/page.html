@@ -1,124 +1,159 @@
 ---
-layout: base
+layout: default
 ---
 
-<div style="width: 100%; padding-top: 140px; box-sizing: border-box;">
+<!-- HERO -->
+<section style="padding:160px 0 100px;">
     <div class="container">
-        
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-                <span class="section-label" style="margin: 0;">Home / {{ page.title }}</span>
-                <h1 style="font-family: 'Fraunces'; font-size: clamp(2.5rem, 8vw, 5.5rem); line-height: 0.85; margin: 0; word-wrap: break-word;">
-                    {{ page.title }}
-                </h1>
-                <div style="display: inline-block; width: fit-content; background: var(--accent); color: white; padding: 5px 15px; font-weight: 800; font-size: 0.7rem; margin-top: 10px;">
-                    {{ page.settore }}
-                </div>
+
+        <div style="
+            background: var(--primary);
+            color: white;
+            padding: 60px;
+            border: var(--border);
+            position: relative;
+            overflow: hidden;
+        ">
+
+            <!-- Etichetta -->
+            <span class="section-label" style="color:white; opacity:0.6;">
+                {{ page.category | default: "Pagina" }}
+            </span>
+
+            <!-- Titolo -->
+            <h1 style="
+                font-family:'Fraunces';
+                font-size:clamp(3rem,8vw,6rem);
+                line-height:0.85;
+                margin:20px 0;
+            ">
+                {{ page.title }}
+            </h1>
+
+            <!-- Descrizione -->
+            {% if page.description %}
+            <p style="
+                max-width:600px;
+                font-weight:600;
+                opacity:0.85;
+            ">
+                {{ page.description }}
+            </p>
+            {% endif %}
+
+            <!-- Firma -->
+            <div style="
+                position:absolute;
+                bottom:20px;
+                right:40px;
+                font-family:'Homemade Apple';
+                font-size:2rem;
+                color:var(--yellow);
+                transform: rotate(-3deg);
+            ">
+                {{ site.title | default: "Gabriel Jones" }}
             </div>
 
-
-            <div class="top-card">
-                <div class="card-header">In Evidenza</div>
-
-
-
-
-{% assign last = site.posts.first %}
-
-{% if last %}
-<div class="card-row" onclick="location.href='{{ last.url }}'">
-    <h4>Ultimo Post</h4>
-    <h1>{{ last.title }}</h1>
-</div>
-{% endif %}
-
-
-<!--
-                <div class="card-row" style="border-left: 6px solid var(--accent);">
-                    <span>Alert System</span>
-                    <p>Apertura iscrizioni workshop formazione Maggio.</p>
-                </div>
--->
-            </div>
-
-
-
-
-
-
-        
-        <div class="main-post-grid">
-            
-            <article class="content-area">
-                <div class="post-text-body">
-                    {{ content }}
-                </div>
-            </article>
-<!--
-            <aside class="sidebar-area">
-                <div class="top-card">
-                    <div class="card-header">Info Progetto</div>
-                    <div class="card-row">
-                        <span>Categoria</span>
-                        <p>{{ page.categories | join: ", " | default: "General" }}</p>
-                    </div>
-                    {% if page.tags.size > 0 %}
-                    <div class="card-row">
-                        <span>Tags</span>
-                        <p>#{{ page.tags | join: " #" }}</p>
-                    </div>
-                    {% endif %}
-                    <div class="card-row" style="background: var(--yellow); border-bottom: none;">
-                        <span>Status</span>
-                        <p>Documento Pubblico</p>
-                    </div>
-                </div>
-            </aside>
--->
         </div>
+
     </div>
-</div>
+</section>
 
-<style>
-    /* Reset per evitare conflitti */
-    .main-post-grid {
-        display: grid;
-        grid-template-columns: 1fr 350px;
-        gap: 50px;
-        align-items: start;
-        padding: 50px 0;
-    }
 
-    .post-text-body {
-        font-family: 'Outfit', sans-serif;
-        font-size: 1.2rem;
-        line-height: 1.5;
-        color: var(--dark);
-    }
+<!-- CONTENUTO -->
+<section style="margin-bottom:120px;">
+    <div class="container">
 
-    /* Stile per gli elementi Markdown */
-    .post-text-body h2 { font-family: 'Fraunces'; font-size: 2.5rem; margin: 40px 0 20px; color: var(--primary); }
-    .post-text-body p { margin-bottom: 20px; }
-    .post-text-body ul { margin-bottom: 20px; padding-left: 20px; }
-    .post-text-body li { list-style: square; margin-bottom: 10px; font-weight: 600; }
+        <div style="
+            display:grid;
+            grid-template-columns: 1fr 300px;
+            gap:60px;
+        ">
 
-    /* Fix per la card che spariva o si rompeva */
-    .sidebar-area .top-card {
-        border: var(--border);
-        background: white;
-        display: block; /* Forza il blocco */
-    }
+            <!-- MAIN -->
+            <div style="
+                font-size:1.15rem;
+                line-height:1.7;
+            ">
+                {{ content }}
+            </div>
 
-    /* Responsive */
-    @media (max-width: 1024px) {
-        .main-post-grid {
-            grid-template-columns: 1fr;
-        }
-        .sidebar-area {
-            order: -1; /* Sidebar sopra su mobile */
-            margin-bottom: 30px;
-        }
-        .sidebar-area .top-card {
-            width: 100%;
-        }
-    }
-</style>
+            <!-- SIDEBAR FIGA -->
+            <aside>
+
+                <div style="
+                    border: var(--border);
+                    padding:30px;
+                    background:white;
+                    margin-bottom:30px;
+                ">
+                    <h4 style="font-weight:900; margin-bottom:10px;">
+                        Info
+                    </h4>
+
+                    <p style="font-size:0.9rem;">
+                        Ultimo aggiornamento:<br>
+                        <strong>{{ page.date | date: "%d %B %Y" }}</strong>
+                    </p>
+                </div>
+
+                {% if page.tags %}
+                <div style="
+                    border: var(--border);
+                    padding:30px;
+                    background:white;
+                ">
+                    <h4 style="font-weight:900; margin-bottom:15px;">
+                        Tags
+                    </h4>
+
+                    <div style="display:flex; flex-wrap:wrap; gap:10px;">
+                        {% for tag in page.tags %}
+                        <span style="
+                            background: var(--dark);
+                            color:white;
+                            font-size:0.7rem;
+                            padding:5px 10px;
+                            font-weight:800;
+                        ">
+                            {{ tag }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+            </aside>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- SEZIONE EXTRA (tipo callout figo) -->
+{% if page.highlight %}
+<section style="margin-bottom:120px;">
+    <div class="container">
+
+        <div style="
+            background: var(--yellow);
+            border: var(--border);
+            padding:60px;
+        ">
+            <h3 style="
+                font-family:'Fraunces';
+                font-size:2.5rem;
+                margin-bottom:20px;
+            ">
+                {{ page.highlight.title }}
+            </h3>
+
+            <p style="max-width:600px;">
+                {{ page.highlight.text }}
+            </p>
+        </div>
+
+    </div>
+</section>
+{% endif %}
