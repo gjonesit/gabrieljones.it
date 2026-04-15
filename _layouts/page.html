@@ -2,158 +2,217 @@
 layout: default
 ---
 
-<!-- HERO -->
-<section style="padding:160px 0 100px;">
-    <div class="container">
+<style>
+  .hero {
+    padding: 120px 0 80px;
+  }
 
-        <div style="
-            background: var(--primary);
-            color: white;
-            padding: 60px;
-            border: var(--border);
-            position: relative;
-            overflow: hidden;
-        ">
+  .hero-box {
+    background: var(--primary);
+    color: white;
+    padding: 60px;
+    border: var(--border);
+    position: relative;
+    overflow: hidden;
+  }
 
-            <!-- Etichetta -->
-            <span class="section-label" style="color:white; opacity:0.6;">
-                {{ page.category | default: "Pagina" }}
-            </span>
+  .section-label {
+    color: white;
+    opacity: 0.6;
+  }
 
-            <!-- Titolo -->
-            <h1 style="
-                font-family:'Fraunces';
-                font-size:clamp(3rem,8vw,6rem);
-                line-height:0.85;
-                margin:20px 0;
-            ">
-                {{ page.title }}
-            </h1>
+  .hero-title {
+    font-family: 'Fraunces';
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    line-height: 0.9;
+    margin: 20px 0;
+  }
 
-            <!-- Descrizione -->
-            {% if page.description %}
-            <p style="
-                max-width:600px;
-                font-weight:600;
-                opacity:0.85;
-            ">
-                {{ page.description }}
-            </p>
-            {% endif %}
+  .hero-desc {
+    max-width: 600px;
+    font-weight: 600;
+    opacity: 0.85;
+  }
 
-            <!-- Firma -->
-            <div style="
-                position:absolute;
-                bottom:20px;
-                right:40px;
-                font-family:'Homemade Apple';
-                font-size:2rem;
-                color:var(--yellow);
-                transform: rotate(-3deg);
-            ">
-                {{ site.title | default: "Gabriel Jones" }}
-            </div>
+  .hero-sign {
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    font-family: 'Homemade Apple';
+    font-size: 2rem;
+    color: var(--yellow);
+    transform: rotate(-3deg);
+  }
 
-        </div>
+  .content {
+    margin-bottom: 120px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 60px;
+  }
+
+  .main {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .box {
+    border: var(--border);
+    padding: 30px;
+    background: white;
+    margin-bottom: 30px;
+  }
+
+  .box h4 {
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .tags span {
+    background: var(--dark);
+    color: white;
+    font-size: 0.7rem;
+    padding: 5px 10px;
+    font-weight: 800;
+  }
+
+  .highlight {
+    margin-bottom: 120px;
+  }
+
+  .highlight-box {
+    background: var(--yellow);
+    border: var(--border);
+    padding: 60px;
+  }
+
+  .highlight-box h3 {
+    font-family: 'Fraunces';
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+      order: -1;
+    }
+
+    .hero-box {
+      padding: 40px;
+    }
+
+    .hero-sign {
+      position: static;
+      margin-top: 30px;
+      transform: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      padding: 80px 0 60px;
+    }
+
+    .hero-box {
+      padding: 30px 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 10vw, 3rem);
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+    }
+
+    .highlight-box {
+      padding: 30px 20px;
+    }
+  }
+</style>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-box">
+
+      <span class="section-label">
+        {{ page.category | default: "Pagina" }}
+      </span>
+
+      <h1 class="hero-title">
+        {{ page.title }}
+      </h1>
+
+      {% if page.description %}
+      <p class="hero-desc">
+        {{ page.description }}
+      </p>
+      {% endif %}
+
+      <div class="hero-sign">
+        {{ site.title | default: "Gabriel Jones" }}
+      </div>
 
     </div>
+  </div>
 </section>
 
+<section class="content">
+  <div class="container">
+    <div class="grid">
 
-<!-- CONTENUTO -->
-<section style="margin-bottom:120px;">
-    <div class="container">
+      <div class="main">
+        {{ content }}
+      </div>
 
-        <div style="
-            display:grid;
-            grid-template-columns: 1fr 300px;
-            gap:60px;
-        ">
+      <aside class="sidebar">
 
-            <!-- MAIN -->
-            <div style="
-                font-size:1.15rem;
-                line-height:1.7;
-            ">
-                {{ content }}
-            </div>
-
-            <!-- SIDEBAR FIGA -->
-            <aside>
-
-                <div style="
-                    border: var(--border);
-                    padding:30px;
-                    background:white;
-                    margin-bottom:30px;
-                ">
-                    <h4 style="font-weight:900; margin-bottom:10px;">
-                        Info
-                    </h4>
-
-                    <p style="font-size:0.9rem;">
-                        Ultimo aggiornamento:<br>
-                        <strong>{{ page.date | date: "%d %B %Y" }}</strong>
-                    </p>
-                </div>
-
-                {% if page.tags %}
-                <div style="
-                    border: var(--border);
-                    padding:30px;
-                    background:white;
-                ">
-                    <h4 style="font-weight:900; margin-bottom:15px;">
-                        Tags
-                    </h4>
-
-                    <div style="display:flex; flex-wrap:wrap; gap:10px;">
-                        {% for tag in page.tags %}
-                        <span style="
-                            background: var(--dark);
-                            color:white;
-                            font-size:0.7rem;
-                            padding:5px 10px;
-                            font-weight:800;
-                        ">
-                            {{ tag }}
-                        </span>
-                        {% endfor %}
-                    </div>
-                </div>
-                {% endif %}
-
-            </aside>
-
+        <div class="box">
+          <h4>Info</h4>
+          <p>
+            Ultimo aggiornamento:<br>
+            <strong>{{ page.date | date: "%d %B %Y" }}</strong>
+          </p>
         </div>
 
+        {% if page.tags %}
+        <div class="box">
+          <h4>Tags</h4>
+
+          <div class="tags">
+            {% for tag in page.tags %}
+            <span>{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+      </aside>
+
     </div>
+  </div>
 </section>
 
-
-<!-- SEZIONE EXTRA (tipo callout figo) -->
 {% if page.highlight %}
-<section style="margin-bottom:120px;">
-    <div class="container">
-
-        <div style="
-            background: var(--yellow);
-            border: var(--border);
-            padding:60px;
-        ">
-            <h3 style="
-                font-family:'Fraunces';
-                font-size:2.5rem;
-                margin-bottom:20px;
-            ">
-                {{ page.highlight.title }}
-            </h3>
-
-            <p style="max-width:600px;">
-                {{ page.highlight.text }}
-            </p>
-        </div>
-
+<section class="highlight">
+  <div class="container">
+    <div class="highlight-box">
+      <h3>{{ page.highlight.title }}</h3>
+      <p>{{ page.highlight.text }}</p>
     </div>
+  </div>
 </section>
 {% endif %}
